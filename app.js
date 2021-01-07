@@ -1,6 +1,7 @@
 const readline=require('readline');
 const fs=require('fs');
 const { checkServerIdentity } = require('tls');
+const { Console } = require('console');
 
 const r= readline.createInterface({
     input: process.stdin,
@@ -133,7 +134,7 @@ function deletedata(index){
     ask();
     }
     else {
-    console.log("The index "+index+" does not exist. Enter an index no. in the range of 0 and "+indexcheck);
+    console.log("The index "+index+" does not exist. Enter an index no. in the range of 0 and "+(indexcheck-1));
     ask();
     }
 }
@@ -149,6 +150,9 @@ function end(){
 
 function delall(){
     fs.writeFileSync('directory.json', " ");
+    console.log();
+    console.log("The entire directory has been deleted successfullyy");
+    console.log();
     ask();
 }
 
